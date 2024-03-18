@@ -1,0 +1,168 @@
+@font-face {
+    font-family: Warung-Kopi;
+    src: url(../fonts/Warung-Kopi.woff);
+}
+
+body {
+    background-color: #2d3757;
+    background-size: auto;
+    text-align: center;
+    font-family: Warung-Kopi, sans-serif;
+}
+
+p{
+    border-radius: 1vh;
+    padding: 5vh;
+    color:#ffffff;
+    font-size: x-large;
+}
+
+table {
+    border-collapse: collapse;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    margin: 2vh;
+    width: 40vw;
+    height: 40vw;
+    min-width: 500px;
+    min-height: 500px;
+}
+
+tr,
+td {
+    border: none;
+}
+
+td.celda {
+    background-image: none;
+    height: 11%;
+    width: 11%;
+}
+
+td.jaque-b {
+    background: url(../img/rey-b.png), radial-gradient(red, rgba(0, 0, 0, 0));
+    background-size: cover;
+}
+
+td.jaque-n {
+    background: url(../img/rey-n.png), radial-gradient(red, rgba(0, 0, 0, 0));
+    background-size: cover;
+}
+
+td.peon-n {
+    background-image: url(../img/peon-n.png);
+    background-size: cover;
+}
+
+td.peon-b {
+    background-image: url(../img/peon-b.png);
+    background-size: cover;
+}
+
+td.caballo-b {
+    background-image: url(../img/caballo-b.png);
+    background-size: cover;
+}
+
+td.caballo-n {
+    background-image: url(../img/caballo-n.png);
+    background-size: cover;
+}
+
+td.torre-b {
+    background-image: url(../img/torre-b.png);
+    background-size: cover;
+}
+
+td.torre-n {
+    background-image: url(../img/torre-n.png);
+    background-size: cover;
+}
+
+td.alfil-b {
+    background-image: url(../img/alfil-b.png);
+    background-size: cover;
+}
+
+td.alfil-n {
+    background-image: url(../img/alfil-n.png);
+    background-size: cover;
+}
+
+td.rey-b {
+    background-image: url(../img/rey-b.png);
+    background-size: cover;
+}
+
+td.rey-n {
+    background-image: url(../img/rey-n.png);
+    background-size: cover;
+}
+
+td.reina-b {
+    background-image: url(../img/reina-b.png);
+    background-size: cover;
+}
+
+td.reina-n {
+    background-image: url(../img/reina-n.png);
+    background-size: cover;
+}
+
+tr:nth-child(even) td:nth-child(odd),
+tr:nth-child(odd) td:nth-child(even) {
+    background-color: #272344;
+}
+
+tr:nth-child(odd) td:nth-child(odd),
+tr:nth-child(even) td:nth-child(even) {
+    background-color: #f3f4ff;
+}
+
+td:first-child,
+td:last-child,
+tr:first-child>td,
+tr:last-child>td {
+    background-color: #000514 !important;
+    color: #898fcf;
+
+textarea {
+    margin: 2vh;
+    resize: none;
+    font-family: pixellari, sans-serif;
+    background-color: #ffffff;
+    border: none;
+    padding: 2vh;
+    border-radius: 1vh;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+textarea:focus{
+    outline: none;
+}
+
+button,
+select, label {
+    margin-top: 1vh;
+    padding: 1vh;
+    font-family: pixellari, sans-serif;
+    font-size: x-large;
+    cursor: pointer;
+    border-radius: 1vh;
+    border: none;
+    margin-left: 1vh;
+    background-color:rgb(44, 45, 56);
+    color:#f3f4ff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+button:hover,
+select:hover, label:hover{
+    background-color: #211c2b;
+    color: white;
+}
+
+input[type=file] {
+    position: absolute;
+    top: -1000px;
+}
+}
