@@ -1,3 +1,38 @@
+var translations = {
+  es: {
+    movement: 'Movimiento',
+    chooseGame: 'Elegir partida',
+    game1: 'Partida 1',
+    game2: 'Partida 2',
+    game3: 'Partida 3',
+    stepByStep: 'Paso a paso',
+    complete: 'Completo',
+    restart: 'Reiniciar',
+    loadGame: 'Cargar partida'
+  },
+  en: {
+    movement: 'Movement',
+    chooseGame: 'Choose game',
+    game1: 'Game 1',
+    game2: 'Game 2',
+    game3: 'Game 3',
+    stepByStep: 'Step by step',
+    complete: 'Complete',
+    restart: 'Restart',
+    loadGame: 'Load game'
+  }
+};
+
+function changeLanguage() {
+  var language = document.getElementById('language-select').value;
+  var elementsToTranslate = document.querySelectorAll('[data-translate]');
+
+  elementsToTranslate.forEach(function (element) {
+    var translationKey = element.getAttribute('data-translate');
+    element.innerText = translations[language][translationKey];
+  });
+}
+
 var turno = true; //blancas = true, negras = false
 var i = 0; //contador de movimientos
 var tokens;
@@ -95,7 +130,7 @@ function pasos() {
   }
 
   //promocion de peon
-  if(checarPromocion(tokens[i])){
+  if (checarPromocion(tokens[i])) {
     var transformar = checarPieza(tokens[i].match(/[A-Z]/)[0]);
     var columna = parseInt(convertirLetraANumero(posicion[0])) + 1;
     var renglon = 9 - parseInt(posicion[1]);
@@ -103,15 +138,14 @@ function pasos() {
     moverPieza(tablero, turno, "peon", posicion, checarSiCome(tokens[i]));
     tablero.rows[renglon].cells[columna].classList.remove("peon" + (turno ? "-b" : "-n"));
     tablero.rows[renglon].cells[columna].classList.add(transformar + (turno ? "-b" : "-n"));
-    out.innerText = `Movimiento:\nTurno: ${
-      turno ? "blancas\n" : "negras\n"
-    }Promoción de peon a ${transformar}`
+    out.innerText = `Movimiento:\nTurno: ${turno ? "blancas\n" : "negras\n"
+      }Promoción de peon a ${transformar}`
   }
   else if (pieza == "enroque") {
-    if (tokens[i].endsWith("+") || tokens[i].endsWith("#")){
+    if (tokens[i].endsWith("+") || tokens[i].endsWith("#")) {
       posicion = tokens[i].replace(/[\+#]/g, '');
-    }else{
-    posicion = tokens[i];
+    } else {
+      posicion = tokens[i];
     }
     switch (posicion) {
       case "O-O":
@@ -132,9 +166,8 @@ function pasos() {
           );
 
           //actualizar texto de movimiento
-          out.innerText = `Movimiento\nTurno: ${
-            turno ? "blancas\n" : "negras\n"
-          }Enroque corto`;
+          out.innerText = `Movimiento\nTurno: ${turno ? "blancas\n" : "negras\n"
+            }Enroque corto`;
         }
         break;
       case "O-O-O":
@@ -155,9 +188,8 @@ function pasos() {
           );
 
           //actualizar texto de movimiento
-          out.innerText = `Movimiento\nTurno: ${
-            turno ? "blancas\n" : "negras\n"
-          }Enroque largo`;
+          out.innerText = `Movimiento\nTurno: ${turno ? "blancas\n" : "negras\n"
+            }Enroque largo`;
         }
         break;
     }
@@ -178,16 +210,15 @@ function pasos() {
     }
 
     //actualizar texto de movimiento
-    out.innerText = `Movimiento:\nTurno: ${turno ? "blancas\n" : "negras\n"}${
-      checarSiCome(tokens[i])
+    out.innerText = `Movimiento:\nTurno: ${turno ? "blancas\n" : "negras\n"}${checarSiCome(tokens[i])
         ? `${pieza} se come a ${posicion}`
         : `${pieza} a ${posicion}`
-    }`;
+      }`;
   }
 
-  if(checarJaque(tokens[i])){
+  if (checarJaque(tokens[i])) {
     out.innerText += ", Jaque";
-  }else if(checarJaqueMate(tokens[i])){
+  } else if (checarJaqueMate(tokens[i])) {
     out.innerText += ", Jaque Mate";
   }
 
